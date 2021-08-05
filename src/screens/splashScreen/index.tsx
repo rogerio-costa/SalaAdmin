@@ -13,8 +13,8 @@ export default function SplashScreen({ navigation }) {
                         <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
 
                             <View style={{ flex: 2, justifyContent: 'center' }}>
-                                <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', paddingBottom: 5 }}>Olá Mundo</Text>
-                                <Text style={{ color: 'white', fontSize: 20, paddingTop: 5 }}>As coisas não funcionam</Text>
+                                <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', paddingBottom: 5 }}>Bem vindo</Text>
+                                <Text style={{ color: 'white', fontSize: 20, paddingTop: 5 }}>Expanda suas possibilidades com o SalaAdmin</Text>
                             </View>
                             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                                 <Button icon="arrow-right" style={{ borderRadius: 50, padding: 10, backgroundColor: "#0F360A" }} mode="contained" onPress={() => navigation.navigate('LoginScreen')}>Seguir</Button>

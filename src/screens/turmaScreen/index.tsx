@@ -67,7 +67,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AlunoScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Aluno 1</Text>
                                     </Button>
                                 </View>
@@ -79,7 +79,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AlunoScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Aluno 2</Text>
                                     </Button>
                                 </View>
@@ -91,7 +91,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AlunoScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Aluno 3</Text>
                                     </Button>
                                 </View>
@@ -103,7 +103,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AlunoScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Aluno 4</Text>
                                     </Button>
                                 </View>
@@ -127,7 +127,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AtividadeScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Atividade 1</Text>
                                     </Button>
                                 </View>
@@ -139,7 +139,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AtividadeScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Atividade 2</Text>
                                     </Button>
                                 </View>
@@ -151,7 +151,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AtividadeScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Atividade 3</Text>
                                     </Button>
                                 </View>
@@ -163,7 +163,7 @@ export default function TurmaScreen({ route, navigation }) {
                                     ></ImageBackground>
                                     <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                                         mode="contained"
-                                        onPress={() => navigation.navigate('')}>
+                                        onPress={() => navigation.navigate('AtividadeScreen')}>
                                         <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Atividade 4</Text>
                                     </Button>
                                 </View>
