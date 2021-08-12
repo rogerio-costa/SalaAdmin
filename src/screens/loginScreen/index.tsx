@@ -3,7 +3,7 @@ import { Text, View, ImageBackground, ScrollView, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import * as Google from 'expo-google-app-auth';
 
-import {IOS_CLIENT_ID, ANDROID_CLIENT_ID} from './../../config/googleAuth';
+import { IOS_CLIENT_ID, ANDROID_CLIENT_ID } from './../../config/googleAuth';
 
 export default function LoginScreen({ navigation }) {
 
@@ -13,22 +13,25 @@ export default function LoginScreen({ navigation }) {
     const signInAsync = async () => {
         console.log("LoginScreen.js 6 | loggin in");
         try {
-            const { type, user } = await Google.logInAsync({
+            const { type, accessToken,token, user } = await Google.logInAsync({
                 iosClientId: IOS_CLIENT_ID,
                 androidClientId: ANDROID_CLIENT_ID,
             });
 
             if (type === "success") {
                 // Then you can use the Google REST API
+                let userInfoResponse = await fetch('https://www.googleapis.com/userinfo/v2/me', {
+                    headers: { Authorization: `Bearer ${accessToken}` },
+                });
                 console.log("LoginScreen.js 17 | success, navigating to profile");
-                navigation.navigate("Home", { user });
+                navigation.navigate("Home", { type, accessToken, user,  userInfoResponse });
             }
         } catch (error) {
             console.log("LoginScreen.js 19 | error with login", error);
         }
     };
 
-    
+
     return (
         <ScrollView contentContainerStyle={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', }}>
             <View style={{ flex: 1, width: '100%' }}>

@@ -1,11 +1,44 @@
-import React from 'react';
-import { Text, View, ImageBackground, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View, ImageBackground, ScrollView, FlatList } from 'react-native';
 import { Button } from 'react-native-paper';
+import { classroomApi } from "../../services/classroomApi";
+
+async function listCourses(token: string) {
+    classroomApi.defaults.headers.authorization = `Bearer ${token}`;
+    const res = await classroomApi.get('/v1/courses');
+    return res.data.courses;
+}
+
+type CourseData = {
+    name: string,
+    key: string
+}
 
 export default function Home({ route, navigation }) {
-    const { user } = route.params;
-    console.log("user from google", user);
-    console.log(user.name)
+    const { type, accessToken, user, userInfoResponse } = route.params;
+    const [items, setItems] = useState<CourseData[]>([]);
+
+    useEffect(() => {
+        async function getItems() {
+            try {
+                let course = new Array<CourseData>();
+
+                const data = await listCourses(accessToken);
+                for (let i = 0; i < data.length; i++) {
+                    const list = JSON.parse(JSON.stringify(data[i]));
+                    course.push({
+                        name: list.name,
+                        key: String(i)
+                    });
+                }
+                setItems(course);
+            } catch (error) {
+                console.log("Ocorreu um erro ao buscar os items " + error);
+            }
+        }
+        getItems();
+    }, []);
+
     return (
         <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#081E06' }}>
             <View style={{ flex: 1, width: '100%' }}>
@@ -16,7 +49,7 @@ export default function Home({ route, navigation }) {
                         <ImageBackground
                             source={{
                                 uri: user.photoUrl,
-                              }}
+                            }}
                             style={{ flex: 1, borderRadius: 10 }}
                         ></ImageBackground>
                         <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
@@ -35,7 +68,7 @@ export default function Home({ route, navigation }) {
 
                 <View style={{ flex: 3, padding: 20 }}>
 
-                    <View style={{ flex: 0.5, padding: 10 ,alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
+                    <View style={{ flex: 0.5, padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
                         <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Minhas Turmas</Text>
                     </View>
 
@@ -126,6 +159,28 @@ export default function Home({ route, navigation }) {
                         </View>
 
                     </View>
+
+
+
+                    <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+                        <Text>Olá mundo </Text>
+                        <FlatList
+                            data={items}
+                            renderItem={({ item }) => {
+                                return (
+                                    <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>
+                                        {item.name}
+                                    </Text>
+                                );
+                            }}
+                            ItemSeparatorComponent={() => {
+                                return (
+                                    <View style={{}} />
+                                )
+                            }}
+                        />
+                    </View>
+
 
                 </View>
 
