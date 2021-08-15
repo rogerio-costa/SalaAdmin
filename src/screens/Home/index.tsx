@@ -14,6 +14,10 @@ type CourseData = {
     key: string
 }
 
+async function imprimirLista(lista: object) {
+    
+}
+
 export default function Home({ route, navigation }) {
     const { type, accessToken, user, userInfoResponse } = route.params;
     const [items, setItems] = useState<CourseData[]>([]);
@@ -41,6 +45,10 @@ export default function Home({ route, navigation }) {
         }
         getItems();
     }, []);
+
+    console.log(typeof(items))
+    console.log(Object.keys(items).length);
+     
 
     return (
         <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#081E06' }}>
@@ -77,8 +85,9 @@ export default function Home({ route, navigation }) {
                     </View>
 
 
-
                     <View style={{ flex: 3.5, alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
+                       
+
                         <FlatList
                             data={items}
                             renderItem={({ item }) => {
