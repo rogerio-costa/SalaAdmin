@@ -33,7 +33,10 @@ export default function Home({ route, navigation }) {
                 }
                 setItems(course);
             } catch (error) {
+                console.log("ERROS");
                 console.log("Ocorreu um erro ao buscar os items " + error);
+                console.log("Ocorreu um erro ao buscar os items " + error.response);
+                console.log("Ocorreu um erro ao buscar os items " + error.response.data.error.message);
             }
         }
         getItems();
@@ -50,7 +53,8 @@ export default function Home({ route, navigation }) {
                             source={{
                                 uri: user.photoUrl,
                             }}
-                            style={{ flex: 1, borderRadius: 10 }}
+                            style={{ flex: 1 }}
+                            imageStyle={{ borderRadius: 10 }}
                         ></ImageBackground>
                         <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
                             mode="contained"
@@ -72,113 +76,31 @@ export default function Home({ route, navigation }) {
                         <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Minhas Turmas</Text>
                     </View>
 
+
+
                     <View style={{ flex: 3.5, alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-
-                        <View style={{ flex: 1, flexDirection: 'row' }}>
-
-                            <View style={{ flex: 1, padding: 10, height: 200, }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 1</Text>
-                                </Button>
-                            </View>
-
-                            <View style={{ flex: 1, padding: 10, height: 200 }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 2</Text>
-                                </Button>
-                            </View>
-
-                        </View>
-
-                        <View style={{ flex: 1, flexDirection: 'row', }}>
-
-                            <View style={{ flex: 1, padding: 10, height: 200, }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 3</Text>
-                                </Button>
-                            </View>
-
-                            <View style={{ flex: 1, padding: 10, height: 200 }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 4</Text>
-                                </Button>
-                            </View>
-
-                        </View>
-
-                        <View style={{ flex: 1, flexDirection: 'row', }}>
-
-                            <View style={{ flex: 1, padding: 10, height: 200, }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 5</Text>
-                                </Button>
-                            </View>
-
-                            <View style={{ flex: 1, padding: 10, height: 200 }}>
-                                <ImageBackground
-                                    source={require('./images/logo_turma.png')}
-                                    style={{ flex: 1 }}
-                                ></ImageBackground>
-                                <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
-                                    mode="contained"
-                                    onPress={() => navigation.navigate('TurmaScreen')}>
-                                    <Text style={{ color: '#081E06', fontWeight: 'bold' }}>Turma 6</Text>
-                                </Button>
-                            </View>
-
-                        </View>
-
-                    </View>
-
-
-
-                    <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text>Olá mundo </Text>
                         <FlatList
                             data={items}
                             renderItem={({ item }) => {
                                 return (
-                                    <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>
-                                        {item.name}
-                                    </Text>
+                                    <View style={{ flex: 1, padding: 10, height: 200, }}>
+                                        <ImageBackground
+                                            source={require('./images/logo_turma.png')}
+                                            style={{ flex: 1 }}
+                                            imageStyle={{ borderRadius: 10 }}
+                                        ></ImageBackground>
+                                        <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
+                                            mode="contained"
+                                            onPress={() => navigation.navigate('TurmaScreen')}>
+                                            <Text style={{ color: '#081E06', fontWeight: 'bold' }}>{item.name}</Text>
+                                        </Button>
+                                    </View>
+
                                 );
                             }}
-                            ItemSeparatorComponent={() => {
-                                return (
-                                    <View style={{}} />
-                                )
-                            }}
+
                         />
+
                     </View>
 
 

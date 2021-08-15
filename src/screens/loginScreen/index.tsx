@@ -16,6 +16,7 @@ export default function LoginScreen({ navigation }) {
             const { type, accessToken,token, user } = await Google.logInAsync({
                 iosClientId: IOS_CLIENT_ID,
                 androidClientId: ANDROID_CLIENT_ID,
+                scopes: ['https://www.googleapis.com/auth/classroom.courses.readonly'],
             });
 
             if (type === "success") {
