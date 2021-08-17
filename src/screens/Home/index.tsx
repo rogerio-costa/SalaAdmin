@@ -11,7 +11,7 @@ async function listCourses(token: string) {
 
 type CourseData = {
     name: string,
-    key: string
+    id: string
 }
 
 async function imprimirLista(lista: object) {
@@ -32,7 +32,7 @@ export default function Home({ route, navigation }) {
                     const list = JSON.parse(JSON.stringify(data[i]));
                     course.push({
                         name: list.name,
-                        key: String(i)
+                        id: list.id,
                     });
                 }
                 setItems(course);
@@ -46,8 +46,6 @@ export default function Home({ route, navigation }) {
         getItems();
     }, []);
 
-    console.log(typeof(items))
-    console.log(Object.keys(items).length);
      
 
     return (
@@ -98,7 +96,7 @@ export default function Home({ route, navigation }) {
                                             style={{ flex: 1 }}
                                             imageStyle={{ borderRadius: 10 }}
                                         ></ImageBackground>
-                                        <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white' }}
+                                        <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white', }}
                                             mode="contained"
                                             onPress={() => navigation.navigate('TurmaScreen')}>
                                             <Text style={{ color: '#081E06', fontWeight: 'bold' }}>{item.name}</Text>
