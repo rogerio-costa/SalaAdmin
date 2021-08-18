@@ -3,6 +3,10 @@ import { Text, View, ImageBackground, ScrollView } from 'react-native';
 import { Button, DataTable, TextInput } from 'react-native-paper';
 
 export default function AtividadeScreen({ route, navigation }) {
+
+    const [text, setText] = React.useState('');
+    const [text2, setText2] = React.useState('');
+    
     return (
         <ScrollView contentContainerStyle={{ backgroundColor: '#081E06' }}>
             <View style={{ flex: 1, width: '100%' }}>
@@ -24,6 +28,28 @@ export default function AtividadeScreen({ route, navigation }) {
                 </View>
 
                 <View style={{ flex: 3, padding: 20, }}>
+
+                <View style={{ marginBottom: 10 }}>
+                        <View style={{ padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
+                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Período de Busca</Text>
+                        </View>
+
+                        <View>
+                            <TextInput style={{ margin: 10 }}
+                                label="Data inicial"
+                                value={text}
+                                onChangeText={text => setText(text)}
+                            />
+
+                            <TextInput style={{ margin: 10 }}
+                                label="Data final"
+                                value={text2}
+                                onChangeText={text2 => setText2(text2)}
+                            />
+                        </View>
+
+                    </View>
+
 
                     <View style={{ marginBottom: 10 }}>
                         <View style={{ padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
@@ -73,7 +99,7 @@ export default function AtividadeScreen({ route, navigation }) {
 
                     <View style={{ marginBottom: 10 }}>
                         <View style={{ padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
-                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Alunos que não Entregaram a Atividades</Text>
+                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Alunos que não Entregaram a Atividade</Text>
                         </View>
 
                         <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
@@ -154,7 +180,7 @@ export default function AtividadeScreen({ route, navigation }) {
 
                     <View style={{ marginBottom: 10 }}>
                         <View style={{ padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F360A', borderRadius: 20 }}>
-                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Alunos que Zeraram Atividades</Text>
+                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Alunos que Zeraram a Atividade</Text>
                         </View>
 
                         <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
