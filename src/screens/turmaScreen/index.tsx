@@ -5,6 +5,7 @@ import Panel from '../../../components/Panel';  // Step 1
 
 export default function TurmaScreen({ route, navigation }) {
 
+    const { item } = route.params;
     const [text, setText] = React.useState('');
     const [text2, setText2] = React.useState('');
 
@@ -22,7 +23,7 @@ export default function TurmaScreen({ route, navigation }) {
                     </View>
 
                     <View style={{ flex: 2, justifyContent: 'center', padding: 10 }}>
-                        <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Turma...</Text>
+                        <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>{item.name}</Text>
                         <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>Número de alunos</Text>
                         <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>Número de atividades</Text>
                     </View>

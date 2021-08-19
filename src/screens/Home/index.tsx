@@ -98,7 +98,7 @@ export default function Home({ route, navigation }) {
                                         ></ImageBackground>
                                         <Button style={{ padding: 0, borderRadius: 10, backgroundColor: 'white', }}
                                             mode="contained"
-                                            onPress={() => navigation.navigate('TurmaScreen')}>
+                                            onPress={() => navigation.navigate('TurmaScreen', { item })}>
                                             <Text style={{ color: '#081E06', fontWeight: 'bold' }}>{item.name}</Text>
                                         </Button>
                                     </View>
